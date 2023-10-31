@@ -1,4 +1,4 @@
-package pruebas;
+package cl.pruebasEmol;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
