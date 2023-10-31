@@ -8,8 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Prueba {
     public static void main(String[] args) {
-        // Establecer la propiedad del sistema para el controlador Gecko (GeckoDriver)
-        System.setProperty("web-driver.gecko.driver", "C:\\Users\\felip\\IdeaProjects\\testSelenium2\\drivers\\geckodriver.exe");
+        // la propiedad del sistema para el controlador Gecko (GeckoDriver) esta establecida en VM-OPTION
 
         // Iniciar el controlador de Firefox
         WebDriver driver = new FirefoxDriver();
