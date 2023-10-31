@@ -2,22 +2,28 @@ package cl.pruebasEmol;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Prueba {
     public static void main(String[] args) {
-        // la propiedad del sistema para el controlador Gecko (GeckoDriver) esta establecida en VM-OPTION
+        // Configura las opciones de Firefox
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        //tamaño y posicion
+        firefoxOptions.addArguments("--window-position=800,750");
+        firefoxOptions.addArguments("--window-size=800,500");
 
-        // Iniciar el controlador de Firefox
-        WebDriver driver = new FirefoxDriver();
+        // Inicializa el controlador de Firefox con las opciones
+        WebDriver webDriver = new FirefoxDriver(firefoxOptions);
 
-        // Navegar a una URL
-        driver.get("https://www.emol.com/");
+        // Navegar a URL Emol
+        webDriver.get("https://www.emol.com/");
 
-        // Cerrar el navegador al finalizar
+        //modo full-screen
+        webDriver.manage().window().fullscreen();
 
+        //cierre de navegador
+        webDriver.close();
     }
 }
+
 
