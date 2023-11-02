@@ -52,6 +52,21 @@ public class Prueba {
         String titulo2 = element2.getText();
         System.out.println("texto del elemento xpath: " + titulo2);
 
+        //simular una busqueda en navegador
+        WebElement inputBusqueda = driver.findElement(By.id("frase_busqueda"));
+        inputBusqueda.sendKeys("deportes");
+
+        WebElement botonSearch = driver.findElement(By.id("ucHomePage_cuHeader_cuBuscador_logoLupa"));
+        botonSearch.click();
+
+        // Verifica si un elemento con la clase "cont_result_b_cas_content" está presente
+        boolean resultadosPresentes = driver.findElements(By.className("cont_result_b_cas_content")).size() > 0;
+        if (resultadosPresentes) {
+            System.out.println("La búsqueda fue exitosa. Se encontraron resultados.");
+        } else {
+            System.out.println("La búsqueda no arrojó resultados.");
+        }
+
         //cierre de navegador
         driver.close();
     }
