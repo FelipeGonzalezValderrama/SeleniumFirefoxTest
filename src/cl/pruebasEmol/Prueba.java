@@ -1,12 +1,13 @@
 package cl.pruebasEmol;
 
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.List;
+
 public class Prueba {
     public static void main(String[] args) {
         // Configura las opciones de Firefox
@@ -26,15 +27,20 @@ public class Prueba {
         //modo full-screen
         driver.manage().window().fullscreen();
 
-
         //mostrar titulo de url
         String tituloWeb = driver.getTitle();
-        System.out.println("el nombre de la Web es " + tituloWeb);
+        System.out.println("el nombre de la Web es: " + tituloWeb);
 
         //extracion de un texto usando "By.id"
         WebElement element = driver.findElement(By.id("ucHomePage_cuHeader_cuFechaModificacion_emolfecha"));
         String titulo = element.getText();
         System.out.println("el texto del elemento es: " + titulo );
+
+        //buscar varios elementos y retornar el numero de elementos encontrados x className
+        List<WebElement> elements = driver.findElements(By.className("aspNetHidden"));
+        int numberOfElements = elements.size();
+        System.out.println("Número de elementos encontrados: " + numberOfElements);
+
 
         //cierre de navegador
         driver.close();
