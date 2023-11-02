@@ -51,6 +51,7 @@ public class Prueba {
         WebElement element2 = driver.findElement(By.xpath("//*[@id=\"ucHomePage_cuHeader_menu_seccions\"]/li[4]/a"));
         String titulo2 = element2.getText();
         System.out.println("texto del elemento xpath: " + titulo2);
+        System.out.println("-----------------------------");
 
         //simular una busqueda en navegador
         WebElement inputBusqueda = driver.findElement(By.id("frase_busqueda"));
