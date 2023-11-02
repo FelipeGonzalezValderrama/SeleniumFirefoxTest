@@ -41,6 +41,16 @@ public class Prueba {
         int numberOfElements = elements.size();
         System.out.println("Número de elementos encontrados: " + numberOfElements);
 
+        //seleccionar elementos por tagName "nav" extraer texto
+        List<WebElement> tagElements = driver.findElements(By.tagName("li"));
+        for (WebElement element1 : tagElements)
+            System.out.println(element1.getText());
+        System.out.println("-----------------------------");
+
+        //explorar a traves de xpath
+        WebElement element2 = driver.findElement(By.xpath("//*[@id=\"ucHomePage_cuHeader_menu_seccions\"]/li[4]/a"));
+        String titulo2 = element2.getText();
+        System.out.println("texto del elemento xpath: " + titulo2);
 
         //cierre de navegador
         driver.close();
