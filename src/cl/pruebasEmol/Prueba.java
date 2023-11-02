@@ -1,6 +1,10 @@
 package cl.pruebasEmol;
 
+
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 public class Prueba {
@@ -14,20 +18,26 @@ public class Prueba {
         //firefoxOptions.addArguments("--headless");
 
         // Inicializa el controlador de Firefox con las opciones
-        WebDriver webDriver = new FirefoxDriver(firefoxOptions);
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
 
         // Navegar a URL Emol
-        webDriver.get("https://www.emol.com/");
+        driver.get("https://www.emol.com/");
 
         //modo full-screen
-        webDriver.manage().window().fullscreen();
+        driver.manage().window().fullscreen();
+
 
         //mostrar titulo de url
-        String tituloWeb = webDriver.getTitle();
+        String tituloWeb = driver.getTitle();
         System.out.println("el nombre de la Web es " + tituloWeb);
 
+        //extracion de un texto usando "By.id"
+        WebElement element = driver.findElement(By.id("ucHomePage_cuHeader_cuFechaModificacion_emolfecha"));
+        String titulo = element.getText();
+        System.out.println("el texto del elemento es: " + titulo );
+
         //cierre de navegador
-        webDriver.close();
+        driver.close();
     }
 }
 
